@@ -1,0 +1,24 @@
+<header class="app-header">
+  @if (site(); as siteConfig) {
+    <img
+      class="app-header__logo"
+      [src]="siteConfig.logo"
+      [alt]="siteConfig.name"
+    />
+  } @else {
+    <div class="app-header__logo">Logo</div>
+  }
+
+  <a
+    href="https://wa.me/5491144407562?text=Hola!%20V%C3%AD%20la%20publicidad%20y%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20los%20productos%20montessor"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="ml-auto hidden rounded-md bg-blue-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-blue-600 md:inline-block"
+  >
+    Contactanos por WhatsApp
+  </a>
+</header>
+
+<app-product-detail-page />
+
+<app-footer />

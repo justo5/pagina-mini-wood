@@ -1,0 +1,78 @@
+{
+  "site": {
+    "name": "MiniWood",
+    "logo": "images/logo/logoMiniWood.webp",
+    "social": {
+      "whatsapp": "https://wa.me/5491144407562?text=Hola!%20V%C3%AD%20la%20publicidad%20y%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20los%20productos%20montessor",
+      "facebook": "https://www.facebook.com/profile.php?id=61572889905597",
+      "instagram": "https://www.instagram.com/miniwood.ar"
+    }
+  },
+  "products": [
+    {
+      "id": "perchero-montessori-arcoiris",
+      "name": "Perchero Montessori Arcoiris",
+      "title": "Perchero Infantil Montessori Arcoiris Estructura MDF 15mm Laqueado con Espejo y Estantes",
+      "images": [
+        "images/products/producto 1/producto1:1.webp",
+        "images/products/producto 1/producto1:2.webp",
+        "images/products/producto 1/producto1:3.webp",
+        "images/products/producto 1/producto1:4.webp",
+        "images/products/producto 1/producto1:5.webp"
+      ],
+      "price": 494545,
+      "installments": { "count": 6, "amount": 82424.17 },
+      "promoLabel": "20% OFF pagando con Transferencia o depósito",
+      "features": [
+        "Materiales de primera calidad: Estructura en MDF de 15 mm laqueado que garantiza resistencia.",
+        "Estantes de madera seleccionada sin nudos: Perfectos para guardar juguetes, libros o accesorios.",
+        "Incluye espejo: Ideal para que los niños se diviertan mientras aprenden a vestirse.",
+        "Envío armado: Lo recibís listo para usar, sin complicaciones.",
+        "Diseño Montessori: Pensado para facilitar la independencia y estimular el orden."
+      ],
+      "shipping": {
+        "freeDelivery": {
+          "text": "Envío gratis en CABA y GBA",
+          "linkText": "Más detalles y formas de entrega"
+        },
+        "pickup": {
+          "label": "Retirá gratis",
+          "description": "Disponible para entrega inmediata en Pilar, Zona Norte",
+          "linkText": "Ver en el mapa"
+        }
+      }
+    },
+    {
+      "id": "biblioteca-arcoiris",
+      "name": "Biblioteca ARCOIRIS",
+      "title": "Biblioteca ARCOIRIS Mueble de Guardado Infantil Montessori con Rueditas MDF Laqueado",
+      "images": [
+        "images/products/producto 2/producto2:1.webp",
+        "images/products/producto 2/producto2:2.webp",
+        "images/products/producto 2/producto2:3.webp", 
+        "images/products/producto 2/producto2:4.webp", 
+        "images/products/producto 2/producto2:5.webp"
+      ],
+      "price": 213558,
+      "installments": { "count": 6, "amount": 35593.00 },
+      "promoLabel": "20% OFF pagando con Transferencia o depósito",
+      "features": [
+        "Material de alta calidad: Fabricada con MDF de 9mm de alta densidad laqueado.",
+        "Movilidad práctica: Equipada con rueditas para moverla con facilidad y fomentar la autonomía.",
+        "Espacio versátil: Perfecta para almacenar libros, cuentos y juguetes.",
+        "Diseño Montessori: Permite que los niños accedan fácilmente, promoviendo la independencia y el orden."
+      ],
+      "shipping": {
+        "freeDelivery": {
+          "text": "Envío gratis en CABA y GBA",
+          "linkText": "Más detalles y formas de entrega"
+        },
+        "pickup": {
+          "label": "Retirá gratis",
+          "description": "Disponible para entrega inmediata en Pilar, Zona Norte",
+          "linkText": "Ver en el mapa"
+        }
+      }
+    }
+  ]
+}

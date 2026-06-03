@@ -1,0 +1,119 @@
+<div class="relative w-full bg-white lg:hidden">
+  <div class="relative w-full">
+    <div class="flex aspect-square w-full items-center justify-center bg-gray-100 overflow-hidden">
+      <img
+        [src]="activeImage()"
+        [alt]="product().name"
+        (click)="openLightbox()"
+        class="h-full w-full object-contain cursor-zoom-in"
+      />
+    </div>
+
+    @if (product().images.length > 1) {
+      <button
+        type="button"
+        aria-label="Imagen anterior"
+        (click)="prev()"
+        class="absolute left-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-md hover:bg-white"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+          <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 0 1-.02 1.06L8.832 10l3.938 3.71a.75.75 0 1 1-1.04 1.08l-4.5-4.25a.75.75 0 0 1 0-1.08l4.5-4.25a.75.75 0 0 1 1.06.02Z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+      <button
+        type="button"
+        aria-label="Imagen siguiente"
+        (click)="next()"
+        class="absolute right-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-700 shadow-md hover:bg-white"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+          <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.168 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+
+      <div class="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
+        @for (img of product().images; track $index) {
+          <span
+            class="h-1.5 rounded-full"
+            [class]="$index === activeIndex() ? 'w-4 bg-gray-800' : 'w-1.5 bg-gray-400'"
+          ></span>
+        }
+      </div>
+    }
+  </div>
+</div>
+
+<div class="hidden w-full items-center gap-4 lg:flex">
+  <div class="flex w-14 shrink-0 flex-col gap-2">
+    @for (img of product().images; track $index) {
+      <button
+        type="button"
+        [attr.aria-label]="'Miniatura ' + ($index + 1)"
+        (click)="select($index)"
+        class="h-14 w-14 rounded bg-gray-100 flex items-center justify-center overflow-hidden transition"
+        [class]="$index === activeIndex()
+          ? 'border-2 border-blue-500'
+          : 'border border-gray-200 hover:border-gray-400'"
+      >
+        <img [src]="img" [alt]="product().name + ' ' + ($index + 1)" class="h-full w-full object-cover" />
+      </button>
+    }
+  </div>
+
+  <div class="flex min-h-[460px] flex-1 items-center justify-center rounded bg-gray-100 overflow-hidden">
+    <img
+      [src]="activeImage()"
+      [alt]="product().name"
+      (click)="openLightbox()"
+      class="max-h-[460px] w-full object-contain cursor-zoom-in"
+    />
+  </div>
+</div>
+
+@if (isLightboxOpen()) {
+  <div
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+    (click)="closeLightbox()"
+  >
+    <button
+      type="button"
+      aria-label="Cerrar"
+      (click)="closeLightbox(); $event.stopPropagation()"
+      class="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-md hover:bg-white"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+        <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"/>
+      </svg>
+    </button>
+
+    <img
+      [src]="activeImage()"
+      [alt]="product().name"
+      (click)="$event.stopPropagation()"
+      class="max-h-[90vh] max-w-[90vw] object-contain"
+    />
+
+    @if (product().images.length > 1) {
+      <button
+        type="button"
+        aria-label="Imagen anterior"
+        (click)="prev(); $event.stopPropagation()"
+        class="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-md hover:bg-white"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6">
+          <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 0 1-.02 1.06L8.832 10l3.938 3.71a.75.75 0 1 1-1.04 1.08l-4.5-4.25a.75.75 0 0 1 0-1.08l4.5-4.25a.75.75 0 0 1 1.06.02Z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+      <button
+        type="button"
+        aria-label="Imagen siguiente"
+        (click)="next(); $event.stopPropagation()"
+        class="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-md hover:bg-white"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6">
+          <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.168 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+    }
+  </div>
+}
