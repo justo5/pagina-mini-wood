@@ -2,10 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { Product, SiteConfig, SiteData } from '../models/product';
+import { MetaPixelService } from './meta-pixel';
 
 @Injectable({ providedIn: 'root' })
 export class SiteDataService {
   private readonly http = inject(HttpClient);
+  private readonly metaPixel = inject(MetaPixelService);
 
   private readonly _data = signal<SiteData | null>(null);
   private loadPromise: Promise<SiteData> | null = null;
@@ -20,6 +22,8 @@ export class SiteDataService {
       this.http.get<SiteData>('data/site.json'),
     ).then((data) => {
       this._data.set(data);
+      const pixelId = data.site?.analytics?.metaPixelId;
+      if (pixelId) this.metaPixel.install(pixelId);
       return data;
     });
     return this.loadPromise;

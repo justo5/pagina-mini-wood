@@ -37,10 +37,15 @@ export interface SocialLinks {
   instagram: string;
 }
 
+export interface AnalyticsConfig {
+  metaPixelId?: string;
+}
+
 export interface SiteConfig {
   name: string;
   logo: string;
   social: SocialLinks;
+  analytics?: AnalyticsConfig;
 }
 
 export interface SiteData {
