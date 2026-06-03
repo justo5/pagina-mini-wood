@@ -1,10 +1,7 @@
 services:
   miniwood:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: miniwood:latest
+    build: .
     container_name: miniwood
     restart: unless-stopped
     ports:
-      - "80:70"
+      - "8091:80"
