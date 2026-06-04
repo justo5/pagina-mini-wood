@@ -40,7 +40,6 @@ export class MetaPixelService {
     }
 
     win.fbq('init', pixelId);
-    win.fbq('track', 'PageView');
 
     const noscript = this.document.createElement('noscript');
     const img = this.document.createElement('img');
@@ -52,5 +51,11 @@ export class MetaPixelService {
     this.document.body.appendChild(noscript);
 
     this.installedId = pixelId;
+  }
+
+  trackPageView(): void {
+    const win = this.document.defaultView as Window | null;
+    if (!win?.fbq || !this.installedId) return;
+    win.fbq('track', 'PageView');
   }
 }

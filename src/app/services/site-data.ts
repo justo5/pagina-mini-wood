@@ -23,7 +23,10 @@ export class SiteDataService {
     ).then((data) => {
       this._data.set(data);
       const pixelId = data.site?.analytics?.metaPixelId;
-      if (pixelId) this.metaPixel.install(pixelId);
+      if (pixelId) {
+        this.metaPixel.install(pixelId);
+        this.metaPixel.trackPageView();
+      }
       return data;
     });
     return this.loadPromise;
