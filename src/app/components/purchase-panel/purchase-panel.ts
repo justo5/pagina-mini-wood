@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { Product } from '../../models/product';
+import { SiteDataService } from '../../services/site-data';
 
 @Component({
   selector: 'app-purchase-panel',
@@ -9,4 +10,5 @@ import { Product } from '../../models/product';
 })
 export class PurchasePanel {
   readonly product = input.required<Product>();
+  readonly whatsappUrl = inject(SiteDataService).site()?.social.whatsapp;
 }

@@ -24,7 +24,10 @@
         "images/products/producto 1/producto1:5.webp"
       ],
       "price": 494545,
-      "installments": { "count": 6, "amount": 82424.17 },
+      "installments": {
+        "count": 6,
+        "amount": 82424.17
+      },
       "promoLabel": "20% OFF pagando con Transferencia o depósito",
       "features": [
         "Materiales de primera calidad: Estructura en MDF de 15 mm laqueado que garantiza resistencia.",
@@ -52,12 +55,16 @@
       "images": [
         "images/products/producto 2/producto2:1.webp",
         "images/products/producto 2/producto2:2.webp",
-        "images/products/producto 2/producto2:3.webp", 
-        "images/products/producto 2/producto2:4.webp", 
-        "images/products/producto 2/producto2:5.webp"
+        "images/products/producto 2/producto2:3.webp",
+        "images/products/producto 2/producto2:4.webp",
+        "images/products/producto 2/producto2:5.webp",
+        "images/products/producto 2/producto2:6.webp"
       ],
       "price": 213558,
-      "installments": { "count": 6, "amount": 35593.00 },
+      "installments": {
+        "count": 6,
+        "amount": 35593.00
+      },
       "promoLabel": "20% OFF pagando con Transferencia o depósito",
       "features": [
         "Material de alta calidad: Fabricada con MDF de 9mm de alta densidad laqueado.",

@@ -1,11 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ProductDetailPage } from './pages/product-detail-page/product-detail-page';
-import { Footer } from './components/footer/footer';
 import { SiteDataService } from './services/site-data';
 
 @Component({
   selector: 'app-root',
-  imports: [ProductDetailPage, Footer],
+  imports: [ProductDetailPage],
   templateUrl: './app.html',
   styleUrl: './app.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

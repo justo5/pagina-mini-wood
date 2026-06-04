@@ -26,11 +26,18 @@ export class ProductDetailPage {
 
   constructor() {
     this.siteData.load().then((data) => {
-      if (data.products.length > 0) this.selectedId.set(data.products[0].id);
+      if (data.products.length === 0) return;
+      const params = new URLSearchParams(window.location.search);
+      const idFromUrl = params.get('product');
+      const match = idFromUrl && data.products.find((p) => p.id === idFromUrl);
+      this.selectedId.set(match ? match.id : data.products[0].id);
     });
   }
 
   selectProduct(id: string): void {
     this.selectedId.set(id);
+    const url = new URL(window.location.href);
+    url.searchParams.set('product', id);
+    history.replaceState(null, '', url.toString());
   }
 }
