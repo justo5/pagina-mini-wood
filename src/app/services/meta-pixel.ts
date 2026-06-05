@@ -58,4 +58,5 @@ export class MetaPixelService {
     if (!win?.fbq || !this.installedId) return;
     win.fbq('track', 'PageView');
   }
+
 }
