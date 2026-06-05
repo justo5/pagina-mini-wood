@@ -12,6 +12,7 @@ declare global {
 export class MetaPixelService {
   private readonly document = inject(DOCUMENT);
   private installedId: string | null = null;
+  private pageViewTracked = false;
 
   install(pixelId: string): void {
     if (!pixelId || this.installedId === pixelId) return;
@@ -54,9 +55,16 @@ export class MetaPixelService {
   }
 
   trackPageView(): void {
+    if (this.pageViewTracked) return;
     const win = this.document.defaultView as Window | null;
     if (!win?.fbq || !this.installedId) return;
     win.fbq('track', 'PageView');
+    this.pageViewTracked = true;
   }
 
+  trackEvent(name: string): void {
+    const win = this.document.defaultView as Window | null;
+    if (!win?.fbq || !this.installedId) return;
+    win.fbq('track', name);
+  }
 }

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ProductDetailPage } from './pages/product-detail-page/product-detail-page';
 import { SiteDataService } from './services/site-data';
+import { MetaPixelService } from './services/meta-pixel';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,20 @@ import { SiteDataService } from './services/site-data';
 })
 export class App {
   private readonly siteData = inject(SiteDataService);
+  private readonly metaPixel = inject(MetaPixelService);
   readonly site = this.siteData.site;
 
   constructor() {
-    this.siteData.load();
+    this.siteData.load().then((data) => {
+      const pixelId = data.site?.analytics?.metaPixelId;
+      if (pixelId) {
+        this.metaPixel.install(pixelId);
+        this.metaPixel.trackPageView();
+      }
+    });
+  }
+
+  trackContact(): void {
+    this.metaPixel.trackEvent('Contact');
   }
 }
