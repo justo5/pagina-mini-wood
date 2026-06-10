@@ -23,10 +23,10 @@
         "images/products/producto 1/producto1:4.webp",
         "images/products/producto 1/producto1:5.webp"
       ],
-      "price": 494545,
+      "price": 385000,
       "installments": {
         "count": 6,
-        "amount": 82424.17
+        "amount": 64166.67
       },
       "promoLabel": "20% OFF pagando con Transferencia o depósito",
       "features": [
@@ -37,10 +37,6 @@
         "Diseño Montessori: Pensado para facilitar la independencia y estimular el orden."
       ],
       "shipping": {
-        "freeDelivery": {
-          "text": "Envío gratis en CABA y GBA",
-          "linkText": "Más detalles y formas de entrega"
-        },
         "pickup": {
           "label": "Retirá gratis",
           "description": "Disponible para entrega inmediata en Pilar, Zona Norte",
